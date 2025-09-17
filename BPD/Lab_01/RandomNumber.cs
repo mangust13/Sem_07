@@ -55,7 +55,7 @@ namespace Lab_01
         }
         public int GetPeriod(int x0)
         {
-            int period = 0;
+            var period = 0;
             var numbers = new List<int>();
             int xn = x0;
             do
@@ -64,14 +64,15 @@ namespace Lab_01
                 xn = LCG(xn);
                 period++;
             } while (x0 != xn);
-            Console.WriteLine("\nPeriod numbers:");
-            Printer.Print(numbers);
+            //Console.WriteLine("\nPeriod numbers:");
+            //Printer.Print(numbers);
             return period;
         }
 
         private int LCG(int x0)
         {
-            return (this.a * x0 + c) % m;
+            long result = (long)this.a * x0 + this.c;
+            return (int)(result % m);
         }
     }
 }

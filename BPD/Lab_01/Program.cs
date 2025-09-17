@@ -1,15 +1,13 @@
 ﻿namespace Lab_01
 {
-    public class Program
+    public static class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(1 << 2);
-
             using var writer = new DualWriter("output.txt");
             Console.SetOut(writer);
 
-            int a = (int)Math.Pow(9, 3), c = 233, m = 1 << 22 - 1, x0 = 5;
+            int a = (int)Math.Pow(9, 3), c = 233, m = (1 << 22) - 1, x0 = 5;
             Console.Write("Enter N: ");
             if (!int.TryParse(Console.ReadLine(), out int N))
             {
@@ -30,11 +28,6 @@
             {
                 Console.WriteLine($"Error: {ex.Message}");
             }
-            
         }
-
-        
-
-        
     }
 }

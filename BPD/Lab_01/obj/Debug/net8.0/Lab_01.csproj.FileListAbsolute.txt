@@ -12,3 +12,4 @@ D:\Univer\Sem_07\BPD\Lab_01\obj\Debug\net8.0\refint\Lab_01.dll
 D:\Univer\Sem_07\BPD\Lab_01\obj\Debug\net8.0\Lab_01.pdb
 D:\Univer\Sem_07\BPD\Lab_01\obj\Debug\net8.0\Lab_01.genruntimeconfig.cache
 D:\Univer\Sem_07\BPD\Lab_01\obj\Debug\net8.0\ref\Lab_01.dll
+D:\Univer\Sem_07\BPD\Lab_01\obj\Debug\net8.0\Lab_01.sourcelink.json
