@@ -41,9 +41,23 @@ public class HomeController : Controller
         }
 
         await using var stream = File.OpenReadStream();
-        ViewBag.FileHash = await Md5Utility.ComputeHexFromStreamAsync(stream, ct);
+        if (stream.CanSeek) stream.Position = 0;
+
+        var hash = await Md5Utility.ComputeHexFromStreamAsync(stream, ct);
+        ViewBag.FileHash = hash;
+
+        // ---------- збер≥гаЇмо .md5 у кор≥нь ----------
+        var rootPath = Directory.GetCurrentDirectory();             // кор≥нь програми
+        var fileName = Path.GetFileName(File.FileName);             // наприклад "test.txt"
+        var md5Path = Path.Combine(rootPath, fileName + ".md5");    // "Е/test.txt.md5"
+        var content = $"{hash}  {fileName}";                        // стандартний формат: хеш + два проб≥ли + ≥мТ€
+        await System.IO.File.WriteAllTextAsync(md5Path, content, ct);
+        ViewBag.Md5FilePath = md5Path; // щоб показати юзеру шл€х
+                                       // ---------------------------------------------
+
         return View("Index");
     }
+
 
     [HttpPost]
     [ValidateAntiForgeryToken]
