@@ -1,40 +1,35 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text;
 
-namespace Lab_01
+namespace Lab_01;
+
+public class DualWriter : TextWriter
 {
-    public class DualWriter : TextWriter
+    private readonly TextWriter console;
+    private readonly StreamWriter file;
+    public DualWriter(string filePath)
     {
-        private readonly TextWriter console;
-        private readonly StreamWriter file;
-        public DualWriter(string filePath)
-        {
-            console = Console.Out;
-            file = new StreamWriter(filePath);
-            file.AutoFlush = false;
-        }
-        public override Encoding Encoding => console.Encoding;
+        console = Console.Out;
+        file = new StreamWriter(filePath);
+        file.AutoFlush = false;
+    }
+    public override Encoding Encoding => console.Encoding;
 
-        public override void Write(char value)
+    public override void Write(char value)
+    {
+        console.Write(value);
+        file.Write(value);
+    }
+    public override void WriteLine(string? value)
+    {
+        console.WriteLine(value);
+        file.WriteLine(value);
+    }
+    protected override void Dispose(bool disposing)
+    {
+        if (disposing)
         {
-            console.Write(value);
-            file.Write(value);
+            file.Dispose();
         }
-        public override void WriteLine(string? value)
-        {
-            console.WriteLine(value);
-            file.WriteLine(value);
-        }
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                file.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+        base.Dispose(disposing);
     }
 }
