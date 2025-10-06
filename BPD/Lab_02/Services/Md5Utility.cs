@@ -17,7 +17,7 @@ public static class Md5Utility
         if (stream.CanSeek) stream.Position = 0;
 
         using var ms = new MemoryStream();
-        await stream.CopyToAsync(ms, ct);      // ✅ копіюємо у окремий буфер
+        await stream.CopyToAsync(ms, ct);
         var md5 = MyMd5.CalculateHash(ms.ToArray());
         return ToHex(md5);
     }
