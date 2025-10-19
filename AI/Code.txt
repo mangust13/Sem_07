@@ -1,0 +1,73 @@
+# --- 1. Підключення бібліотек ---
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from matplotlib.ticker import FuncFormatter
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import PolynomialFeatures, StandardScaler
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import r2_score, mean_absolute_error, mean_squared_error
+
+
+# --- 2. Завантаження та підготовка даних ---
+df = pd.read_csv('/content/sample_data/Dataset2.csv')
+df = df.dropna()
+
+X = df[['median_income']]
+y = df['median_house_value']
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42
+)
+
+
+# --- 3. Поліноміальна регресія та навчання ---
+scaler = StandardScaler()
+X_train_scaled = scaler.fit_transform(X_train)
+X_test_scaled = scaler.transform(X_test)
+
+y_train_log = np.log1p(y_train)
+
+poly = PolynomialFeatures(degree=3) 
+X_poly_train = poly.fit_transform(X_train_scaled)
+X_poly_test = poly.transform(X_test_scaled)
+
+scaler_poly = StandardScaler()
+X_poly_train_scaled = scaler_poly.fit_transform(X_poly_train)
+X_poly_test_scaled = scaler_poly.transform(X_poly_test)
+
+model_poly_log = LinearRegression()
+model_poly_log.fit(X_poly_train_scaled, y_train_log)
+
+y_pred_poly_log = np.expm1(model_poly_log.predict(X_poly_test_scaled))
+
+r2 = r2_score(y_test, y_pred_poly_log)
+mae = mean_absolute_error(y_test, y_pred_poly_log)
+rmse = np.sqrt(mean_squared_error(y_test, y_pred_poly_log))
+
+print(f"R²: {r2:.4f}")
+print(f"MAE: ${mae:,.2f}")
+print(f"RMSE: ${rmse:,.2f}")
+
+# --- 4. Візуалізація результатів ---
+def fmt_money_k(x, pos):
+    return f'{int(x/1000)}k'
+
+formatter = FuncFormatter(fmt_money_k)
+
+plt.figure(figsize=(8, 6))
+plt.scatter(y_test, y_pred_poly_log, alpha=0.3, label='Передбачення')
+plt.plot([y_test.min(), y_test.max()], [y_test.min(), y_test.max()], 'r--', linewidth=2, label='Ідеальна лінія')
+
+plt.xlabel("Реальна ціна, $")
+plt.ylabel("Передбачена ціна, $")
+plt.title(f"Порівняння реальних і передбачених цін (R² = {r2:.4f})")
+plt.legend()
+
+ax = plt.gca()
+ax.xaxis.set_major_formatter(formatter)
+ax.yaxis.set_major_formatter(formatter)
+
+plt.tight_layout()
+plt.show()
