@@ -1,0 +1,169 @@
+using RabbitMQ.Client;
+using RabbitMQ.Client.Events;
+using System;
+using System.Text;
+using System.Text.Json;
+using System.Threading.Tasks;
+
+namespace ExerciseService;
+
+class ExerciseService
+{
+    static async Task Main(string[] args)
+    {
+        var factory = new ConnectionFactory() { HostName = "localhost" };
+        await using var connection = await factory.CreateConnectionAsync();
+        await using var channel = await connection.CreateChannelAsync();
+
+        // ===== Відправник аудіо =====
+        await channel.QueueDeclareAsync("exercise.audio", false, false, false, null);
+
+        // ===== Отримувач результатів =====
+        await channel.QueueDeclareAsync("speech.result", false, false, false, null);
+
+        var consumer = new AsyncEventingBasicConsumer(channel);
+        consumer.ReceivedAsync += async (sender, ea) =>
+        {
+            var json = Encoding.UTF8.GetString(ea.Body.ToArray());
+            var result = JsonSerializer.Deserialize<JsonElement>(json);
+
+            var exerciseId = result.GetProperty("ExerciseId").GetString();
+            var accuracy = result.GetProperty("Accuracy").GetDouble();
+            var feedback = result.GetProperty("Feedback").GetString();
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine($"\n📥 Отримано результат для вправи #{exerciseId}");
+            Console.ResetColor();
+            Console.WriteLine($"→ Точність: {accuracy:P0}");
+            Console.WriteLine($"→ Коментар: {feedback}");
+            await Task.Delay(1000);
+            Console.WriteLine($"[ExerciseService] Результат збережено у ProgressService ✅");
+
+            // 🟡 Після обробки — повторно показуємо запрошення
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("\nВведи ідентифікатор вправи (або 'exit' для виходу):");
+            Console.ResetColor();
+        };
+
+        await channel.BasicConsumeAsync("speech.result", autoAck: true, consumer);
+
+        Console.ForegroundColor = ConsoleColor.Yellow;
+        Console.WriteLine("\nВведи ідентифікатор вправи (або 'exit' для виходу):");
+        Console.ResetColor();
+
+        while (true)
+        {
+            var exerciseId = Console.ReadLine();
+            if (exerciseId == "exit") break;
+
+            var message = new
+            {
+                ExerciseId = exerciseId,
+                UserId = 7,
+                AudioUrl = $"audio_{exerciseId}.wav",
+                Timestamp = DateTime.UtcNow
+            };
+
+            var body = Encoding.UTF8.GetBytes(JsonSerializer.Serialize(message));
+            var props = new BasicProperties();
+
+            await channel.BasicPublishAsync<BasicProperties>(
+                exchange: "",
+                routingKey: "exercise.audio",
+                mandatory: false,
+                basicProperties: props,
+                body: body);
+
+            Console.WriteLine($"[ExerciseService] Надіслано повідомлення для вправи {exerciseId}");
+        }
+    }
+}
+
+
+
+using RabbitMQ.Client;
+using RabbitMQ.Client.Events;
+using System;
+using System.Text;
+using System.Text.Json;
+using System.Threading.Tasks;
+
+namespace SpeechAIService;
+
+class SpeechAIService
+{
+    static async Task Main(string[] args)
+    {
+        var factory = new ConnectionFactory() { HostName = "localhost" };
+        await using var connection = await factory.CreateConnectionAsync();
+        await using var channel = await connection.CreateChannelAsync();
+
+        // Черга для прийому аудіо
+        await channel.QueueDeclareAsync(
+            queue: "exercise.audio",
+            durable: false,
+            exclusive: false,
+            autoDelete: false,
+            arguments: null);
+
+        // Черга для відправки результатів
+        await channel.QueueDeclareAsync(
+            queue: "speech.result",
+            durable: false,
+            exclusive: false,
+            autoDelete: false,
+            arguments: null);
+
+        Console.WriteLine("[SpeechAIService] Очікування повідомлень у 'exercise.audio'...");
+
+        var consumer = new AsyncEventingBasicConsumer(channel);
+
+        // ⚙️ НОВА СИГНАТУРА: два параметри — sender, eventArgs
+        consumer.ReceivedAsync += async (sender, ea) =>
+        {
+            try
+            {
+                var json = Encoding.UTF8.GetString(ea.Body.ToArray());
+                var message = JsonSerializer.Deserialize<JsonElement>(json);
+
+                var exerciseId = message.GetProperty("ExerciseId").GetString();
+                Console.WriteLine($"\n🎧 Отримано вправу #{exerciseId}");
+                Console.WriteLine("→ Аналіз вимови (імітація 2 сек)...");
+
+                await Task.Delay(2000); // імітація аналізу
+
+                var result = new
+                {
+                    ExerciseId = exerciseId,
+                    Accuracy = 0.91,
+                    Feedback = "Вимова правильна, артикуляція гарна!",
+                    Timestamp = DateTime.UtcNow
+                };
+
+                var body = Encoding.UTF8.GetBytes(JsonSerializer.Serialize(result));
+                var props = new BasicProperties();
+
+                await channel.BasicPublishAsync<BasicProperties>(
+                    exchange: "",
+                    routingKey: "speech.result",
+                    mandatory: false,
+                    basicProperties: props,
+                    body: body);
+
+                Console.WriteLine($"✅ Результат для вправи #{exerciseId} відправлено у 'speech.result'");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"❌ Помилка обробки повідомлення: {ex.Message}");
+            }
+        };
+
+        await channel.BasicConsumeAsync(
+            queue: "exercise.audio",
+            autoAck: true,
+            consumer: consumer);
+
+        Console.WriteLine("Натисни Enter для виходу...");
+        Console.ReadLine();
+    }
+}
