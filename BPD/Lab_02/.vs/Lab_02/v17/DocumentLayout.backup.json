@@ -3,24 +3,12 @@
   "WorkspaceRootPath": "D:\\Univer\\Sem_07\\BPD\\Lab_02\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4621CA3E-ADFC-4290-B4E0-58F6E84CCB99}|Lab_02.csproj|d:\\univer\\sem_07\\bpd\\lab_02\\services\\mymd5.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4621CA3E-ADFC-4290-B4E0-58F6E84CCB99}|Lab_02.csproj|solutionrelative:services\\mymd5.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{4621CA3E-ADFC-4290-B4E0-58F6E84CCB99}|Lab_02.csproj|d:\\univer\\sem_07\\bpd\\lab_02\\services\\md5utility.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4621CA3E-ADFC-4290-B4E0-58F6E84CCB99}|Lab_02.csproj|solutionrelative:services\\md5utility.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4621CA3E-ADFC-4290-B4E0-58F6E84CCB99}|Lab_02.csproj|d:\\univer\\sem_07\\bpd\\lab_02\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{4621CA3E-ADFC-4290-B4E0-58F6E84CCB99}|Lab_02.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4621CA3E-ADFC-4290-B4E0-58F6E84CCB99}|Lab_02.csproj|d:\\univer\\sem_07\\bpd\\lab_02\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{4621CA3E-ADFC-4290-B4E0-58F6E84CCB99}|Lab_02.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4621CA3E-ADFC-4290-B4E0-58F6E84CCB99}|Lab_02.csproj|d:\\univer\\sem_07\\bpd\\lab_02\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4621CA3E-ADFC-4290-B4E0-58F6E84CCB99}|Lab_02.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4621CA3E-ADFC-4290-B4E0-58F6E84CCB99}|Lab_02.csproj|d:\\univer\\sem_07\\bpd\\lab_02\\services\\mymd5.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4621CA3E-ADFC-4290-B4E0-58F6E84CCB99}|Lab_02.csproj|solutionrelative:services\\mymd5.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 1075,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,64 +26,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "MyMd5.cs",
               "DocumentMoniker": "D:\\Univer\\Sem_07\\BPD\\Lab_02\\Services\\MyMd5.cs",
               "RelativeDocumentMoniker": "Services\\MyMd5.cs",
               "ToolTip": "D:\\Univer\\Sem_07\\BPD\\Lab_02\\Services\\MyMd5.cs",
               "RelativeToolTip": "Services\\MyMd5.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAGUAAAAAAAAAAAAkwIIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-30T21:08:20.828Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-30T21:08:20.828Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Md5Utility.cs",
               "DocumentMoniker": "D:\\Univer\\Sem_07\\BPD\\Lab_02\\Services\\Md5Utility.cs",
               "RelativeDocumentMoniker": "Services\\Md5Utility.cs",
               "ToolTip": "D:\\Univer\\Sem_07\\BPD\\Lab_02\\Services\\Md5Utility.cs",
               "RelativeToolTip": "Services\\Md5Utility.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAApAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-30T20:49:51.372Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "D:\\Univer\\Sem_07\\BPD\\Lab_02\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
-              "ToolTip": "D:\\Univer\\Sem_07\\BPD\\Lab_02\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "Controllers\\HomeController.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAADwvzsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-30T20:42:10.208Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\Univer\\Sem_07\\BPD\\Lab_02\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
-              "ToolTip": "D:\\Univer\\Sem_07\\BPD\\Lab_02\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-30T20:38:43.047Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "D:\\Univer\\Sem_07\\BPD\\Lab_02\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "D:\\Univer\\Sem_07\\BPD\\Lab_02\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAALAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-30T20:33:27.223Z"
+              "WhenOpened": "2025-09-30T20:49:51.372Z",
+              "EditorCaption": ""
             }
           ]
         },

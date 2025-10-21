@@ -3,20 +3,24 @@
   "WorkspaceRootPath": "D:\\Univer\\Sem_07\\BPD\\Lab_03\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{F1A62FB3-67F7-469A-9575-2967A42FE78F}|Lab_03.csproj|d:\\univer\\sem_07\\bpd\\lab_03\\controllers\\cryptocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F1A62FB3-67F7-469A-9575-2967A42FE78F}|Lab_03.csproj|solutionrelative:controllers\\cryptocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F1A62FB3-67F7-469A-9575-2967A42FE78F}|Lab_03.csproj|d:\\univer\\sem_07\\bpd\\lab_03\\views\\crypto\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F1A62FB3-67F7-469A-9575-2967A42FE78F}|Lab_03.csproj|solutionrelative:views\\crypto\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F1A62FB3-67F7-469A-9575-2967A42FE78F}|Lab_03.csproj|d:\\univer\\sem_07\\bpd\\lab_03\\models\\rc5encryptor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F1A62FB3-67F7-469A-9575-2967A42FE78F}|Lab_03.csproj|solutionrelative:models\\rc5encryptor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F1A62FB3-67F7-469A-9575-2967A42FE78F}|Lab_03.csproj|d:\\univer\\sem_07\\bpd\\lab_03\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F1A62FB3-67F7-469A-9575-2967A42FE78F}|Lab_03.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{F1A62FB3-67F7-469A-9575-2967A42FE78F}|Lab_03.csproj|d:\\univer\\sem_07\\bpd\\lab_03\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F1A62FB3-67F7-469A-9575-2967A42FE78F}|Lab_03.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F1A62FB3-67F7-469A-9575-2967A42FE78F}|Lab_03.csproj|d:\\univer\\sem_07\\bpd\\lab_03\\rc5.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F1A62FB3-67F7-469A-9575-2967A42FE78F}|Lab_03.csproj|solutionrelative:rc5.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F1A62FB3-67F7-469A-9575-2967A42FE78F}|Lab_03.csproj|d:\\univer\\sem_07\\bpd\\lab_03\\rc5encryptor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F1A62FB3-67F7-469A-9575-2967A42FE78F}|Lab_03.csproj|solutionrelative:rc5encryptor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F1A62FB3-67F7-469A-9575-2967A42FE78F}|Lab_03.csproj|d:\\univer\\sem_07\\bpd\\lab_03\\randomnumber.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F1A62FB3-67F7-469A-9575-2967A42FE78F}|Lab_03.csproj|solutionrelative:randomnumber.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,19 +30,45 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\Univer\\Sem_07\\BPD\\Lab_03\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\Univer\\Sem_07\\BPD\\Lab_03\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-21T21:33:03.169Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "RC5Encryptor.cs",
-              "DocumentMoniker": "D:\\Univer\\Sem_07\\BPD\\Lab_03\\RC5Encryptor.cs",
-              "RelativeDocumentMoniker": "RC5Encryptor.cs",
-              "ToolTip": "D:\\Univer\\Sem_07\\BPD\\Lab_03\\RC5Encryptor.cs",
-              "RelativeToolTip": "RC5Encryptor.cs",
-              "ViewState": "AgIAACcAAAAAAAAAAAAYwCAAAAAeAAAAAAAAAA==",
+              "DocumentMoniker": "D:\\Univer\\Sem_07\\BPD\\Lab_03\\Models\\RC5Encryptor.cs",
+              "RelativeDocumentMoniker": "Models\\RC5Encryptor.cs",
+              "ToolTip": "D:\\Univer\\Sem_07\\BPD\\Lab_03\\Models\\RC5Encryptor.cs",
+              "RelativeToolTip": "Models\\RC5Encryptor.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-21T20:06:48.974Z",
+              "WhenOpened": "2025-10-21T21:13:39.561Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CryptoController.cs",
+              "DocumentMoniker": "D:\\Univer\\Sem_07\\BPD\\Lab_03\\Controllers\\CryptoController.cs",
+              "RelativeDocumentMoniker": "Controllers\\CryptoController.cs",
+              "ToolTip": "D:\\Univer\\Sem_07\\BPD\\Lab_03\\Controllers\\CryptoController.cs",
+              "RelativeToolTip": "Controllers\\CryptoController.cs",
+              "ViewState": "AgIAACgAAAAAAAAAAAAqwDwAAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-21T20:30:41.113Z",
               "EditorCaption": ""
             },
             {
@@ -47,41 +77,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "RandomNumber.cs",
-              "DocumentMoniker": "D:\\Univer\\Sem_07\\BPD\\Lab_03\\RandomNumber.cs",
-              "RelativeDocumentMoniker": "RandomNumber.cs",
-              "ToolTip": "D:\\Univer\\Sem_07\\BPD\\Lab_03\\RandomNumber.cs",
-              "RelativeToolTip": "RandomNumber.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-21T19:55:27.708Z",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Univer\\Sem_07\\BPD\\Lab_03\\Views\\Crypto\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Crypto\\Index.cshtml",
+              "ToolTip": "D:\\Univer\\Sem_07\\BPD\\Lab_03\\Views\\Crypto\\Index.cshtml",
+              "RelativeToolTip": "Views\\Crypto\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-21T20:25:05.417Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Univer\\Sem_07\\BPD\\Lab_03\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "D:\\Univer\\Sem_07\\BPD\\Lab_03\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAAwBMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABAAAAAAAAAAAAAAAAcAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-21T19:49:50.886Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "RC5.cs",
-              "DocumentMoniker": "D:\\Univer\\Sem_07\\BPD\\Lab_03\\RC5.cs",
-              "RelativeDocumentMoniker": "RC5.cs",
-              "ToolTip": "D:\\Univer\\Sem_07\\BPD\\Lab_03\\RC5.cs",
-              "RelativeToolTip": "RC5.cs",
-              "ViewState": "AgIAAIgAAAAAAAAAAAAmwLgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-21T19:19:52.367Z",
               "EditorCaption": ""
             }
           ]
