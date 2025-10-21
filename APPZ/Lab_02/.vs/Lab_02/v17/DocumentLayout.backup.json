@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "D:\\Univer\\Sem_07\\APPZ\\Lab_02\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A19E47E1-F24E-51BC-6E94-13938FC58AEF}|ExerciseService\\ExerciseService.csproj|d:\\univer\\sem_07\\appz\\lab_02\\exerciseservice\\exerciseservice.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{A19E47E1-F24E-51BC-6E94-13938FC58AEF}|ExerciseService\\ExerciseService.csproj|solutionrelative:exerciseservice\\exerciseservice.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{C17775D7-DFB0-EAFA-DFA8-5750998BC2B5}|SpeechAIService\\SpeechAIService.csproj|d:\\univer\\sem_07\\appz\\lab_02\\speechaiservice\\speechaiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C17775D7-DFB0-EAFA-DFA8-5750998BC2B5}|SpeechAIService\\SpeechAIService.csproj|solutionrelative:speechaiservice\\speechaiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A19E47E1-F24E-51BC-6E94-13938FC58AEF}|ExerciseService\\ExerciseService.csproj|d:\\univer\\sem_07\\appz\\lab_02\\exerciseservice\\exerciseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A19E47E1-F24E-51BC-6E94-13938FC58AEF}|ExerciseService\\ExerciseService.csproj|solutionrelative:exerciseservice\\exerciseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C17775D7-DFB0-EAFA-DFA8-5750998BC2B5}|SpeechAIService\\SpeechAIService.csproj|d:\\univer\\sem_07\\appz\\lab_02\\speechaiservice\\speechaiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C17775D7-DFB0-EAFA-DFA8-5750998BC2B5}|SpeechAIService\\SpeechAIService.csproj|solutionrelative:speechaiservice\\speechaiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A19E47E1-F24E-51BC-6E94-13938FC58AEF}|ExerciseService\\ExerciseService.csproj|d:\\univer\\sem_07\\appz\\lab_02\\exerciseservice\\exerciseservice.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{A19E47E1-F24E-51BC-6E94-13938FC58AEF}|ExerciseService\\ExerciseService.csproj|solutionrelative:exerciseservice\\exerciseservice.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,11 +22,15 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "ExerciseService",
               "DocumentMoniker": "D:\\Univer\\Sem_07\\APPZ\\Lab_02\\ExerciseService\\ExerciseService.csproj",
               "RelativeDocumentMoniker": "ExerciseService\\ExerciseService.csproj",
@@ -34,7 +38,7 @@
               "RelativeToolTip": "ExerciseService\\ExerciseService.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-10-19T12:39:07.111Z",
+              "WhenOpened": "2025-10-21T17:38:57.754Z",
               "EditorCaption": ""
             },
             {
@@ -45,27 +49,23 @@
               "RelativeDocumentMoniker": "ExerciseService\\ExerciseService.cs",
               "ToolTip": "D:\\Univer\\Sem_07\\APPZ\\Lab_02\\ExerciseService\\ExerciseService.cs",
               "RelativeToolTip": "ExerciseService\\ExerciseService.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAQwB8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAHAAAAAAAAAAAAAQwA8AAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-19T12:02:53.663Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "SpeechAIService.cs",
               "DocumentMoniker": "D:\\Univer\\Sem_07\\APPZ\\Lab_02\\SpeechAIService\\SpeechAIService.cs",
               "RelativeDocumentMoniker": "SpeechAIService\\SpeechAIService.cs",
               "ToolTip": "D:\\Univer\\Sem_07\\APPZ\\Lab_02\\SpeechAIService\\SpeechAIService.cs",
               "RelativeToolTip": "SpeechAIService\\SpeechAIService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFoAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACUAAAAAAAAAAAAQwBIAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-19T12:10:24.381Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             }
           ]
         },

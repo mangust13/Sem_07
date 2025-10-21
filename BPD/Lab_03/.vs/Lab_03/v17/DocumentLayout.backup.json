@@ -1,0 +1,110 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Univer\\Sem_07\\BPD\\Lab_03\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F1A62FB3-67F7-469A-9575-2967A42FE78F}|Lab_03.csproj|d:\\univer\\sem_07\\bpd\\lab_03\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F1A62FB3-67F7-469A-9575-2967A42FE78F}|Lab_03.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F1A62FB3-67F7-469A-9575-2967A42FE78F}|Lab_03.csproj|d:\\univer\\sem_07\\bpd\\lab_03\\rc5.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F1A62FB3-67F7-469A-9575-2967A42FE78F}|Lab_03.csproj|solutionrelative:rc5.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F1A62FB3-67F7-469A-9575-2967A42FE78F}|Lab_03.csproj|d:\\univer\\sem_07\\bpd\\lab_03\\rc5encryptor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F1A62FB3-67F7-469A-9575-2967A42FE78F}|Lab_03.csproj|solutionrelative:rc5encryptor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F1A62FB3-67F7-469A-9575-2967A42FE78F}|Lab_03.csproj|d:\\univer\\sem_07\\bpd\\lab_03\\randomnumber.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F1A62FB3-67F7-469A-9575-2967A42FE78F}|Lab_03.csproj|solutionrelative:randomnumber.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "RC5Encryptor.cs",
+              "DocumentMoniker": "D:\\Univer\\Sem_07\\BPD\\Lab_03\\RC5Encryptor.cs",
+              "RelativeDocumentMoniker": "RC5Encryptor.cs",
+              "ToolTip": "D:\\Univer\\Sem_07\\BPD\\Lab_03\\RC5Encryptor.cs",
+              "RelativeToolTip": "RC5Encryptor.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAYwCAAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-21T20:06:48.974Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "RandomNumber.cs",
+              "DocumentMoniker": "D:\\Univer\\Sem_07\\BPD\\Lab_03\\RandomNumber.cs",
+              "RelativeDocumentMoniker": "RandomNumber.cs",
+              "ToolTip": "D:\\Univer\\Sem_07\\BPD\\Lab_03\\RandomNumber.cs",
+              "RelativeToolTip": "RandomNumber.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-21T19:55:27.708Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Univer\\Sem_07\\BPD\\Lab_03\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\Univer\\Sem_07\\BPD\\Lab_03\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAwBMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-21T19:49:50.886Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "RC5.cs",
+              "DocumentMoniker": "D:\\Univer\\Sem_07\\BPD\\Lab_03\\RC5.cs",
+              "RelativeDocumentMoniker": "RC5.cs",
+              "ToolTip": "D:\\Univer\\Sem_07\\BPD\\Lab_03\\RC5.cs",
+              "RelativeToolTip": "RC5.cs",
+              "ViewState": "AgIAAIgAAAAAAAAAAAAmwLgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-21T19:19:52.367Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 1075,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

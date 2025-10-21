@@ -13,7 +13,7 @@ class ExerciseService
 {
     static async Task Main(string[] args)
     {
-        // 🪵 Логування
+        // Логування
         Log.Logger = new LoggerConfiguration()
             .WriteTo.Console(
                 outputTemplate: "[{Timestamp:yyyy-MM-dd HH:mm:ss}] [{Level:u3}] {Message:lj}{NewLine}")
