@@ -13,12 +13,10 @@ class ExerciseService
 {
     static async Task Main(string[] args)
     {
-        // Логування
         Log.Logger = new LoggerConfiguration()
-            .WriteTo.Console(
+            .WriteTo.Console(theme: Serilog.Sinks.SystemConsole.Themes.ConsoleTheme.None,
                 outputTemplate: "[{Timestamp:yyyy-MM-dd HH:mm:ss}] [{Level:u3}] {Message:lj}{NewLine}")
-            .WriteTo.File(
-                path: "exercise_log.txt", 
+            .WriteTo.File("exercise_log.txt",
                 rollingInterval: RollingInterval.Day,
                 outputTemplate: "[{Timestamp:yyyy-MM-dd HH:mm:ss}] [{Level:u3}] {Message:lj}{NewLine}",
                 restrictedToMinimumLevel: LogEventLevel.Information)
@@ -31,19 +29,13 @@ class ExerciseService
             await using var channel = await connection.CreateChannelAsync();
 
             const string exchangeName = "speech_exchange";
+            await channel.ExchangeDeclareAsync(exchangeName, ExchangeType.Topic);
 
-            // 🧩 Обмінник Topic
-            await channel.ExchangeDeclareAsync(exchange: exchangeName, type: ExchangeType.Topic);
-
-            // ====== Queue для аудіо
-            await channel.QueueDeclareAsync("exercise.audio", false, false, false, null);
-            await channel.QueueBindAsync("exercise.audio", exchangeName, "exercise.audio.new");
-
-            // ====== Queue для результатів
+            // declare queues (for results)
             await channel.QueueDeclareAsync("speech.result", false, false, false, null);
             await channel.QueueBindAsync("speech.result", exchangeName, "speech.result.*");
 
-            // ====== Consumer для результатів ======
+            // subscribe to results
             var consumer = new AsyncEventingBasicConsumer(channel);
             consumer.ReceivedAsync += async (sender, ea) =>
             {
@@ -51,30 +43,25 @@ class ExerciseService
                 {
                     var json = Encoding.UTF8.GetString(ea.Body.ToArray());
                     var result = JsonSerializer.Deserialize<JsonElement>(json);
-
                     var exerciseId = result.GetProperty("ExerciseId").GetString();
-                    var accuracy = result.GetProperty("Accuracy").GetDouble();
+                    var accuracy = result.GetProperty("Accuracy").GetDouble() * 100;
                     var feedback = result.GetProperty("Feedback").GetString();
 
-                    Log.Information("📥 Отримано результат для вправи #{Id}: {Accuracy:P0} | {Feedback}", exerciseId, accuracy, feedback);
-                    await Task.Delay(500);
-                    Log.Information("[ExerciseService] Результат збережено у ProgressService ✅");
-
-                    Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine("\nВведи ідентифікатор вправи (або 'exit' для виходу):");
-                    Console.ResetColor();
+                    Log.Information("Received result for exercise #{Id}: {Accuracy:F1}% | {Feedback}",
+                        exerciseId, accuracy, feedback);
+                    await Task.Delay(800);
+                    Log.Information("[ExerciseService] Result saved in ProgressService.");
+                    Console.WriteLine("Enter exercise ID (or 'exit' to quit):");
                 }
                 catch (Exception ex)
                 {
-                    Log.Error(ex, "❌ Помилка при обробці результату");
+                    Log.Error(ex, "Error processing result");
                 }
             };
 
             await channel.BasicConsumeAsync("speech.result", autoAck: true, consumer);
 
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("Введи ідентифікатор вправи (або 'exit' для виходу):");
-            Console.ResetColor();
+            Console.WriteLine("Enter exercise ID (or 'exit' to quit):");
 
             while (true)
             {
@@ -101,17 +88,17 @@ class ExerciseService
                         basicProperties: props,
                         body: body);
 
-                    Log.Information("[ExerciseService] Надіслано аудіо для вправи {Id}", exerciseId);
+                    Log.Information("[ExerciseService] Sent audio request for exercise #{Id}", exerciseId);
                 }
                 catch (Exception ex)
                 {
-                    Log.Error(ex, "❌ Помилка при надсиланні повідомлення");
+                    Log.Error(ex, "Error while sending message");
                 }
             }
         }
         catch (Exception ex)
         {
-            Log.Fatal(ex, "❌ Помилка при запуску ExerciseService");
+            Log.Fatal(ex, "Critical error while running ExerciseService");
         }
         finally
         {

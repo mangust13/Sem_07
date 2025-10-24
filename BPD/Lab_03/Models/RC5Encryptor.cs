@@ -8,16 +8,16 @@ namespace Lab_03;
 
 public class RC5Encryptor
 {
-    private const int W = 16;      // word size
-    private const int R = 8;      // rounds
-    private const int KEY_BITS = 32;
+    private const int W = 16;
+    private const int R = 8;
+    private const int KEY_BITS = 8;
 
     private readonly RC5 _rc5;
 
     public RC5Encryptor(string password)
     {
         byte[] key = DeriveKeyFromPassword(password, KEY_BITS);
-        _rc5 = new RC5(R, key);
+        _rc5 = new RC5(W, R, key);
     }
 
     // ========================= MAIN METHODS =========================
@@ -27,9 +27,12 @@ public class RC5Encryptor
         byte[] data = File.ReadAllBytes(inputPath);
 
         // Генеруємо IV через власний генератор
-        var rng = new RandomNumber(1103515245, 12345, 0x7FFFFFFF);
-        uint seed = (uint)DateTime.Now.Ticks;
-        var randomValues = rng.GenerateNumbers(10, 2);
+        var a = (uint)Math.Pow(9, 3);
+        var m = (uint)Math.Pow(2, 22) - 1;
+        uint c = 233, x0 = 5;
+
+        var rng = new RandomNumber(a, c, m);
+        var randomValues = rng.GenerateNumbers(x0, 2);
 
         byte[] iv = BitConverter.GetBytes(randomValues[0])
             .Concat(BitConverter.GetBytes(randomValues[1]))
@@ -38,7 +41,6 @@ public class RC5Encryptor
 
         byte[] cipher = _rc5.EncryptCBC(data, iv);
 
-        // перший блок файлу — зашифрований IV
         byte[] ivEncrypted = _rc5.EncryptBlock(iv);
         File.WriteAllBytes(outputPath, ivEncrypted.Concat(cipher).ToArray());
     }
@@ -47,7 +49,6 @@ public class RC5Encryptor
     {
         byte[] full = File.ReadAllBytes(inputPath);
 
-        // Перші 8 байтів — IV у зашифрованому вигляді
         byte[] ivEncrypted = full[..8];
         byte[] iv = _rc5.DecryptBlock(ivEncrypted);
         byte[] cipher = full[8..];
@@ -75,7 +76,6 @@ public class RC5Encryptor
             return key;
         }
 
-        // За замовчуванням 128-бітовий ключ
         return h1;
     }
 }

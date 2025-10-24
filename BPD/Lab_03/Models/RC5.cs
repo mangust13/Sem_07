@@ -5,15 +5,15 @@ namespace Lab_03;
 
 public class RC5
 {
-    private const int W = 32;
     private const uint Pw = 0xB7E15163;
     private const uint Qw = 0x9E3779B9;
 
-    private int r;                  // кількість раундів
-    private uint[] S;               // підключі (2*(r+1))
+    private readonly int r, w;
+    private readonly uint[] S;
 
-    public RC5(int rounds, byte[] key)
+    public RC5(int W, int rounds, byte[] key)
     {
+        w = W;
         r = rounds;
         S = KeyExpansion(key);
     }
@@ -69,7 +69,7 @@ public class RC5
     // -------------------- KEY EXPANSION --------------------
     private uint[] KeyExpansion(byte[] key)
     {
-        int u = W / 8; // байтів на слово (4)
+        int u = w / 8;
         int c = Math.Max(1, key.Length / u);
         uint[] L = new uint[c];
 
@@ -78,9 +78,9 @@ public class RC5
             L[i / u] = (L[i / u] << 8) + key[i];
 
         uint[] S = new uint[2 * (r + 1)];
-        S[0] = (uint)Pw;
+        S[0] = Pw;
         for (int i = 1; i < S.Length; i++)
-            S[i] = S[i - 1] + (uint)Qw;
+            S[i] = S[i - 1] + Qw;
 
         uint A = 0, B = 0;
         int n = 3 * Math.Max(S.Length, L.Length);
