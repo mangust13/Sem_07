@@ -19,7 +19,7 @@ X = df.select_dtypes(include=[np.number]).drop(columns=['House_Price'])
 y = df['House_Price']
 
 X_train, X_test, y_train, y_test = train_test_split(
-    X, y, test_size=0.2, random_state=42
+    X, y, test_size=0.2, random_state=52
 )
 
 # Перевірка кореляції ознак
@@ -34,7 +34,6 @@ def fmt_money_k(x, pos):
     return f'{int(x/1000)}k'
 
 formatter = FuncFormatter(fmt_money_k)
-
 
 # --- Створення та масштабування ознак ---
 scaler = StandardScaler()
@@ -52,9 +51,7 @@ X_poly_train_scaled = scaler_poly.fit_transform(X_poly_train)
 X_poly_test_scaled = scaler_poly.transform(X_poly_test)
 
 print(f"Кількість вихідних ознак: {X_train.shape[1]}")
-print(f"Кількість поліноміальних ознак (ступінь 3): {X_poly_train_scaled.shape[1]}")
-
-
+print(f"Кількість поліноміальних ознак: {X_poly_train_scaled.shape[1]}")
 
 # --- Поліноміальна регресія ---
 model_poly_log = LinearRegression()
@@ -70,7 +67,6 @@ print("=== Поліноміальна регресія ===")
 print(f"R²: {r2:.4f}")
 print(f"MAE: ${mae:,.2f}")
 print(f"RMSE: ${rmse:,.2f}")
-
 
 # --- Візуалізація поліноміальної регресії ---
 
@@ -103,7 +99,6 @@ ax.xaxis.set_major_formatter(formatter)
 ax.yaxis.set_major_formatter(formatter)
 plt.show()
 
-
 # --- ElasticNet регресія ---
 
 model_en_log = ElasticNet(alpha=0.5, l1_ratio=0.5, random_state=42, max_iter=2000)
@@ -119,7 +114,6 @@ print("=== Elastic Net ===")
 print(f"R² (Elastic Net): {r2_en:.4f}")
 print(f"MAE (Elastic Net): ${mae_en:,.2f}")
 print(f"RMSE (Elastic Net): ${rmse_en:,.2f}")
-
 
 # --- Візуалізація ElasticNet регресії ---
 
@@ -151,7 +145,6 @@ ax = plt.gca()
 ax.xaxis.set_major_formatter(formatter)
 ax.yaxis.set_major_formatter(formatter)
 plt.show()
-
 
 # --- Порівняння результатів ---
 results = pd.DataFrame({
@@ -222,3 +215,5 @@ plt.xlabel("Абсолютне значення коефіцієнта")
 plt.ylabel("Ознака")
 plt.tight_layout()
 plt.show()
+
+
