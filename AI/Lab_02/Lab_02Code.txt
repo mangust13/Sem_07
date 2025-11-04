@@ -12,9 +12,9 @@ from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.callbacks import EarlyStopping
 from tensorflow.keras.regularizers import l2
 
+
 # --- Data Preparation ---
 drive.mount('/content/drive')
-
 data_path = "/content/drive/MyDrive/Colab Notebooks/Colab_Data/Lab_02Data.tsv"
 
 df = pd.read_csv(data_path, sep='\t')
@@ -52,7 +52,7 @@ class_weights = {0: weight_for_0, 1: weight_for_1}
 sample_texts = [
     "Я сьогодні дуже щасливий!",
     "Мені страшно за майбутнє.",
-    "Я ненавиджу тебе, ти мене бісиш.", 
+    "Я ненавиджу тебе, ти мене бісиш.",
     "Сумно, коли друзі далеко.",
     "Вау, я такого не очікував!"
 ]
@@ -119,6 +119,30 @@ print(f"Trained Loss: {loss_tr:.4f}, Trained Accuracy: {acc_tr:.4f}")
 print("---------------------------------")
 
 
+# --- LSTM Before vs After Training Charts ---
+plt.figure(figsize=(12, 5))
+epochs_lstm = range(1, len(history_lstm.history['accuracy']) + 1)
+
+plt.subplot(1, 2, 1)
+plt.plot(epochs_lstm, [loss_un]*len(epochs_lstm), 'k--', label='Untrained loss')
+plt.plot(history_lstm.history['val_loss'], 'r-', label='Trained val loss')
+plt.title('LSTM: Loss before vs after training')
+plt.xlabel('Epochs')
+plt.ylabel('Loss')
+plt.legend()
+
+plt.subplot(1, 2, 2)
+plt.plot(epochs_lstm, [acc_un]*len(epochs_lstm), 'k--', label='Untrained accuracy')
+plt.plot(history_lstm.history['val_accuracy'], 'r-', label='Trained val accuracy')
+plt.title('LSTM: Accuracy before vs after training')
+plt.xlabel('Epochs')
+plt.ylabel('Accuracy')
+plt.legend()
+
+plt.tight_layout()
+plt.show()
+
+
 # --- Build Base GRU Model ---
 base_model_gru = Sequential([
     Embedding(input_dim=20000, output_dim=128),
@@ -178,6 +202,30 @@ print(f"Trained Loss: {loss_tr_g:.4f}, Trained Accuracy: {acc_tr_g:.4f}")
 print("---------------------------------")
 
 
+# --- GRU Before vs After Training Charts ---
+plt.figure(figsize=(12, 5))
+epochs_gru = range(1, len(history_gru.history['accuracy']) + 1)
+
+plt.subplot(1, 2, 1)
+plt.plot(epochs_gru, [loss_un_g]*len(epochs_gru), 'k--', label='Untrained loss')
+plt.plot(history_gru.history['val_loss'], 'r-', label='Trained val loss')
+plt.title('GRU: Loss before vs after training')
+plt.xlabel('Epochs')
+plt.ylabel('Loss')
+plt.legend()
+
+plt.subplot(1, 2, 2)
+plt.plot(epochs_gru, [acc_un_g]*len(epochs_gru), 'k--', label='Untrained accuracy')
+plt.plot(history_gru.history['val_accuracy'], 'r-', label='Trained val accuracy')
+plt.title('GRU: Accuracy before vs after training')
+plt.xlabel('Epochs')
+plt.ylabel('Accuracy')
+plt.legend()
+
+plt.tight_layout()
+plt.show()
+
+
 # --- Visualization (LSTM vs GRU) ---
 print("\n--- Training Charts (LSTM vs GRU) ---")
 
@@ -209,5 +257,3 @@ plt.tight_layout()
 plt.savefig('lstm_gru_training_charts.png')
 print("Charts saved as 'lstm_gru_training_charts.png'")
 plt.show()
-
-
