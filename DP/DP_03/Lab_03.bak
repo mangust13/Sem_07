@@ -1,0 +1,27 @@
+(define (ВІДОБРАЗИТИ lst func)
+  (cond
+    ((eq? lst '()) '())
+    (#t (cons (func (car lst)) (ВІДОБРАЗИТИ (cdr lst) func)))))
+
+(define (ОБЕРНЕНИЙ lst)
+  (define (helper sublist acc)
+    (cond
+      ((eq? sublist '()) acc)
+      (#t (helper (cdr sublist) (cons (car sublist) acc)))))
+  (helper lst '()))
+
+(define (ОБЕРНЕНИЙ_Hui lst)
+  (cond
+    ((eq? lst '()) '())
+    (#t (cons (ОБЕРНЕНИЙ (cdr lst)) (list (car lst))))))
+
+(define (ОБЕРНЕНИЙ_ДЕКРЕМЕНТ x)
+  (cond
+    ((eq? x '()) '())
+    ((pair? x) (ОБЕРНЕНИЙ (ВІДОБРАЗИТИ x ОБЕРНЕНИЙ_ДЕКРЕМЕНТ)))
+    (#t (- x 1))))
+
+
+(ОБЕРНЕНИЙ_ДЕКРЕМЕНТ '(2 6 (5 4) 3 ((8 9) 0))) ;((-1 (8 7)) 2 (3 4) 5 1)
+(ОБЕРНЕНИЙ_ДЕКРЕМЕНТ '(1 2 3)) ; (2 1 0)
+(ОБЕРНЕНИЙ_ДЕКРЕМЕНТ '((10 9) 8 7 (6 (5)) 4 ((3) 2) 1)) ; (0 (1 (2)) 3 ((4) 5) 6 7 (8 9))

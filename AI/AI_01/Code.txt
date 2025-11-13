@@ -1,0 +1,219 @@
+# --- Підключення бібліотек ---
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from matplotlib.ticker import FuncFormatter
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import PolynomialFeatures, StandardScaler
+from sklearn.linear_model import LinearRegression, ElasticNet, LogisticRegression
+from sklearn.metrics import r2_score, mean_absolute_error, mean_squared_error, classification_report, confusion_matrix, ConfusionMatrixDisplay
+from google.colab import drive
+
+# --- Завантаження даних ---
+drive.mount('/content/drive')
+file_path = "/content/drive/MyDrive/Colab Notebooks/Colab_Data/Dataset2.csv"
+df = pd.read_csv(file_path)
+
+X = df.select_dtypes(include=[np.number]).drop(columns=['House_Price'])
+y = df['House_Price']
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=52
+)
+
+# Перевірка кореляції ознак
+numeric_features_df = df.select_dtypes(include=[np.number])
+corr_matrix = numeric_features_df.corr()
+
+print("Кореляція всіх числових ознак з 'House_Price':")
+print(corr_matrix['House_Price'].sort_values(ascending=False))
+
+# Форматування
+def fmt_money_k(x, pos):
+    return f'{int(x/1000)}k'
+
+formatter = FuncFormatter(fmt_money_k)
+
+# --- Створення та масштабування ознак ---
+scaler = StandardScaler()
+X_train_scaled = scaler.fit_transform(X_train)
+X_test_scaled = scaler.transform(X_test)
+
+y_train_log = np.log1p(y_train)
+
+poly = PolynomialFeatures(degree=4)
+X_poly_train = poly.fit_transform(X_train_scaled)
+X_poly_test = poly.transform(X_test_scaled)
+
+scaler_poly = StandardScaler()
+X_poly_train_scaled = scaler_poly.fit_transform(X_poly_train)
+X_poly_test_scaled = scaler_poly.transform(X_poly_test)
+
+print(f"Кількість вихідних ознак: {X_train.shape[1]}")
+print(f"Кількість поліноміальних ознак: {X_poly_train_scaled.shape[1]}")
+
+# --- Поліноміальна регресія ---
+model_poly_log = LinearRegression()
+model_poly_log.fit(X_poly_train_scaled, y_train_log)
+
+y_pred_poly_log = np.expm1(model_poly_log.predict(X_poly_test_scaled))
+
+r2 = r2_score(y_test, y_pred_poly_log)
+mae = mean_absolute_error(y_test, y_pred_poly_log)
+rmse = np.sqrt(mean_squared_error(y_test, y_pred_poly_log))
+
+print("=== Поліноміальна регресія ===")
+print(f"R²: {r2:.4f}")
+print(f"MAE: ${mae:,.2f}")
+print(f"RMSE: ${rmse:,.2f}")
+
+# --- Візуалізація поліноміальної регресії ---
+
+# Лінійний графік
+plt.figure(figsize=(12,4))
+plt.plot(range(len(y_test)), y_test.values, label="Реальна ціна", color='red', linewidth=2)
+plt.plot(range(len(y_test)), y_pred_poly_log, label="Передбачена ціна", color='blue', linestyle='--')
+plt.xlabel("Об'єкти (тестова вибірка)")
+plt.ylabel("Ціна, $")
+plt.title("Порівняння цін (поліноміальна регресія)")
+plt.legend()
+plt.tight_layout()
+
+ax = plt.gca()
+ax.yaxis.set_major_formatter(formatter)
+plt.show()
+
+# Scatter plot ---
+plt.figure(figsize=(12, 4))
+plt.scatter(y_test, y_pred_poly_log, alpha=0.3, label='Передбачення')
+plt.plot([y_test.min(), y_test.max()], [y_test.min(), y_test.max()], 'r--', linewidth=2, label='Ідеальна лінія')
+plt.xlabel("Реальна ціна, $")
+plt.ylabel("Передбачена ціна, $")
+plt.title("Порівняння цін (поліноміальна регресія)")
+plt.legend()
+plt.tight_layout()
+
+ax = plt.gca()
+ax.xaxis.set_major_formatter(formatter)
+ax.yaxis.set_major_formatter(formatter)
+plt.show()
+
+# --- ElasticNet регресія ---
+
+model_en_log = ElasticNet(alpha=0.5, l1_ratio=0.5, random_state=42, max_iter=2000)
+model_en_log.fit(X_poly_train_scaled, y_train_log)
+
+y_pred_en_log = np.expm1(model_en_log.predict(X_poly_test_scaled))
+
+r2_en = r2_score(y_test, y_pred_en_log)
+mae_en = mean_absolute_error(y_test, y_pred_en_log)
+rmse_en = np.sqrt(mean_squared_error(y_test, y_pred_en_log))
+
+print("=== Elastic Net ===")
+print(f"R² (Elastic Net): {r2_en:.4f}")
+print(f"MAE (Elastic Net): ${mae_en:,.2f}")
+print(f"RMSE (Elastic Net): ${rmse_en:,.2f}")
+
+# --- Візуалізація ElasticNet регресії ---
+
+# Лінійний графік
+plt.figure(figsize=(12,4))
+plt.plot(range(len(y_test)), y_test.values, label="Реальна ціна", color='red', linewidth=2)
+plt.plot(range(len(y_test)), y_pred_en_log, label="Передбачена ціна", color='green', linestyle='--')
+plt.xlabel("Об'єкти (тестова вибірка)")
+plt.ylabel("Ціна, $")
+plt.title("Порівняння цін (ElasticNet регресія)")
+plt.legend()
+plt.tight_layout()
+
+ax = plt.gca()
+ax.yaxis.set_major_formatter(formatter)
+plt.show()
+
+# Scatter plot
+plt.figure(figsize=(12, 4))
+plt.scatter(y_test, y_pred_en_log, alpha=0.3, label='Передбачення (Elastic Net)', color='green')
+plt.plot([y_test.min(), y_test.max()], [y_test.min(), y_test.max()], 'r--', linewidth=2, label='Ідеальна лінія')
+plt.xlabel("Реальна ціна, $")
+plt.ylabel("Передбачена ціна, $")
+plt.title("Порівняння цін (ElasticNet регресія)")
+plt.legend()
+plt.tight_layout()
+
+ax = plt.gca()
+ax.xaxis.set_major_formatter(formatter)
+ax.yaxis.set_major_formatter(formatter)
+plt.show()
+
+# --- Порівняння результатів ---
+results = pd.DataFrame({
+    'Model': ['Polynomial', 'Elastic Net'],
+    'R²': [r2, r2_en],
+    'MAE': [mae, mae_en],
+    'RMSE': [rmse, rmse_en]
+})
+
+print(results)
+
+# --- Підготовка даних для класифікації ---
+df_class = df.copy()
+quantiles = df_class['House_Price'].quantile([0.33, 0.66])
+low, high = quantiles[0.33], quantiles[0.66]
+
+def categorize_price(p):
+    if p <= low:
+        return 'Low'
+    elif p <= high:
+        return 'Medium'
+    else:
+        return 'High'
+
+df_class['Price_Category'] = df_class['House_Price'].apply(categorize_price)
+
+X_class = df_class.select_dtypes(include=[np.number]).drop(columns=['House_Price'])
+y_class = df_class['Price_Category']
+
+X_train_c, X_test_c, y_train_c, y_test_c = train_test_split(
+    X_class, y_class, test_size=0.2, random_state=42, stratify=y_class
+)
+
+
+# --- Логістична регресія ---
+
+scaler_c = StandardScaler()
+X_train_c_scaled = scaler_c.fit_transform(X_train_c)
+X_test_c_scaled = scaler_c.transform(X_test_c)
+
+model_log = LogisticRegression(C=10,
+    penalty='l2',
+    solver='lbfgs',
+    max_iter=500,
+    random_state=42)
+
+model_log.fit(X_train_c_scaled, y_train_c)
+y_pred_c = model_log.predict(X_test_c_scaled)
+
+# Матриця результатів класифікації
+print(classification_report(y_test_c, y_pred_c))
+
+cm = confusion_matrix(y_test_c, y_pred_c, labels=model_log.classes_)
+disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=model_log.classes_)
+disp.plot(cmap='Blues', values_format='d')
+
+plt.title("Матриця результатів класифікації")
+plt.show()
+
+# Гістограма важливості ознак
+importance = pd.Series(model_log.coef_[0], index=X_class.columns)
+importance_abs = importance.abs().sort_values(ascending=False)
+
+plt.figure(figsize=(8, 5))
+sns.barplot(x=importance_abs.values, y=importance_abs.index, hue=importance_abs.index, legend=False, palette="Blues_r")
+plt.title("Гістограма важливості ознак")
+plt.xlabel("Абсолютне значення коефіцієнта")
+plt.ylabel("Ознака")
+plt.tight_layout()
+plt.show()
+
+

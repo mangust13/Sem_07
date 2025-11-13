@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "DSS";
+}
+
+<h2>Create Digital Signature</h2>
+
+<form asp-action="Sign" method="post" enctype="multipart/form-data">
+    <label>Text to Sign:</label><br />
+    <textarea name="inputText" rows="4" cols="60"></textarea><br /><br />
+    <label>Or choose a file:</label><br />
+    <input type="file" name="inputFile" /><br /><br />
+    <button type="submit">Sign</button>
+</form>
+
+@if (ViewBag.SignatureHex != null)
+{
+    <hr />
+    <h3>Results</h3>
+    <p><strong>Signature (hex):</strong></p>
+    <textarea rows="3" cols="80">@ViewBag.SignatureHex</textarea>
+    <p><strong>Public Key (Base64):</strong></p>
+    <textarea rows="3" cols="80">@ViewBag.PublicKey</textarea>
+    <p><strong>Private Key (Base64):</strong></p>
+    <textarea rows="3" cols="80">@ViewBag.PrivateKey</textarea>
+}
+
+@if (ViewBag.SavePath != null)
+{
+    <hr />
+    <h3>Файли збережено у:</h3>
+    <p><b>@ViewBag.SavePath</b></p>
+}
+

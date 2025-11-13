@@ -1,0 +1,137 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h3 class="m-0">Lab №2 — MD5</h3>
+</div>
+
+<ul class="nav nav-tabs" id="md5Tabs" role="tablist">
+    <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="text-tab" data-bs-toggle="tab" data-bs-target="#text" type="button" role="tab">
+            Текст → MD5
+        </button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="file-tab" data-bs-toggle="tab" data-bs-target="#file" type="button" role="tab">
+            Файл → MD5
+        </button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="verify-tab" data-bs-toggle="tab" data-bs-target="#verify" type="button" role="tab">
+            Перевірка файлу за .md5
+        </button>
+    </li>
+</ul>
+
+<div class="tab-content pt-3">
+
+    <!-- Вкладка 1: Текст -> MD5 -->
+    <div class="tab-pane fade show active" id="text" role="tabpanel">
+        <form asp-action="ComputeTextHash" method="post" class="row g-3">
+            @Html.AntiForgeryToken()
+            <div class="col-12">
+                <label class="form-label">Повідомлення</label>
+                <textarea class="form-control" name="Text" rows="4" placeholder="Введіть текст...">@ViewBag.TextInput</textarea>
+            </div>
+            <div class="col-12 d-flex gap-2">
+                <button class="btn btn-primary" type="submit">Обчислити MD5</button>
+                @if (ViewBag.TextHash != null)
+                {
+                    <input type="text" class="form-control" readonly value="@ViewBag.TextHash" />
+                }
+            </div>
+            @if (ViewBag.TextError != null)
+            {
+                <div class="col-12 text-danger">@ViewBag.TextError</div>
+            }
+        </form>
+    </div>
+
+    <!-- Вкладка 2: Файл -> MD5 -->
+    <div class="tab-pane fade" id="file" role="tabpanel">
+        <form asp-action="ComputeFileHash" method="post" enctype="multipart/form-data" class="row g-3">
+            @Html.AntiForgeryToken()
+            <div class="col-12">
+                <label class="form-label">Оберіть файл</label>
+                <input class="form-control" type="file" name="File" />
+            </div>
+            <div class="col-12 d-flex gap-2">
+                <button class="btn btn-primary" type="submit">Обчислити MD5</button>
+                @if (ViewBag.FileHash != null)
+                {
+                    <input type="text" class="form-control" readonly value="@ViewBag.FileHash" />
+                }
+            </div>
+
+            @if (ViewBag.Md5FilePath != null)
+            {
+                <div class="col-12 text-success">
+                    Створено .md5 файл: @ViewBag.Md5FilePath
+                </div>
+            }
+
+        </form>
+    </div>
+
+    <!-- Вкладка 3: Перевірка файлу за .md5 -->
+    <div class="tab-pane fade" id="verify" role="tabpanel">
+        <form asp-action="VerifyFileIntegrity" method="post" enctype="multipart/form-data" class="row g-3">
+            @Html.AntiForgeryToken()
+            <div class="col-md-6">
+                <label class="form-label">Файл</label>
+                <input class="form-control" type="file" name="File" />
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">.md5 файл (еталонний MD5 у hex)</label>
+                <input class="form-control" type="file" name="Md5File" />
+            </div>
+            <div class="col-12 d-flex gap-2 align-items-center">
+                <button class="btn btn-success" type="submit">Перевірити</button>
+                @if (ViewBag.VerifyMatch != null)
+                {
+                    bool ok = (bool)ViewBag.VerifyMatch;
+                    <span class="badge @(ok ? "bg-success" : "bg-danger")">
+                        @(ok ? "СПІВПАДАЄ" : "НЕ СПІВПАДАЄ")
+                    </span>
+                }
+            </div>
+
+            @if (ViewBag.CalcHash != null || ViewBag.RefHash != null)
+            {
+                <div class="col-12">
+                    <div class="row g-2">
+                        <div class="col-md-6">
+                            <label class="form-label">Обчислений MD5</label>
+                            <input class="form-control" readonly value="@ViewBag.CalcHash" />
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Еталонний MD5 (.md5)</label>
+                            <input class="form-control" readonly value="@ViewBag.RefHash" />
+                        </div>
+                    </div>
+                </div>
+            }
+
+            @if (ViewBag.VerifyError != null)
+            {
+                <div class="col-12 text-danger">@ViewBag.VerifyError</div>
+            }
+        </form>
+    </div>
+
+</div>
+
+@section Scripts {
+    <script>
+        (function() {
+            var active = '@(ViewBag.ActiveTab ?? "")';
+            if (!active) return;
+            var map = { text: '#text-tab', file: '#file-tab', verify: '#verify-tab' };
+            var btn = document.querySelector(map[active]);
+            if (btn) new bootstrap.Tab(btn).show();
+        })();
+    </script>
+}

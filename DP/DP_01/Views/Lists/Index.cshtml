@@ -1,0 +1,94 @@
+﻿@model Lab_01.ViewModels.ListViewModel
+@{
+    ViewData["Title"] = "Lab_01";
+}
+
+<p class="text-muted">Введіть елементи через пробіл. Цілі числа розпізнаються як <code>int</code>, один символ - як <code>char</code>, інше - як <code>string</code>.</p>
+
+<form method="post" asp-controller="Lists" class="mb-4">
+    @Html.AntiForgeryToken()
+    <div class="mb-3">
+        <label asp-for="Input" class="form-label"></label>
+        <input asp-for="Input" class="form-control" />
+        <span asp-validation-for="Input" class="text-danger"></span>
+    </div>
+
+    <div class="d-flex gap-2">
+        <button type="submit" formaction="@Url.Action("Transform", "Lists")" class="btn btn-primary">
+            Перетворити
+        </button>
+
+        <button type="submit" formaction="@Url.Action("Head", "Lists")" class="btn btn-outline-secondary">
+            Взяти голову
+        </button>
+
+        <button type="submit" formaction="@Url.Action("Tail", "Lists")" class="btn btn-outline-secondary">
+            Взяти хвіст
+        </button>
+    </div>
+</form>
+
+@* Показ валідаційних помилок зверху *@
+@if (!ViewData.ModelState.IsValid)
+{
+    <div class="alert alert-danger">
+        @foreach (var err in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+        {
+            <div>@err.ErrorMessage</div>
+        }
+    </div>
+}
+
+@if (Model?.ParsedAs != null)
+{
+    <div class="card mb-3">
+        <div class="card-body">
+            <h5>Початковий список</h5>
+            <pre class="mb-0">@Model.ParsedAs</pre>
+        </div>
+    </div>
+}
+
+@if (Model?.HeadValue != null)
+{
+    <div class="card mb-3">
+        <div class="card-body">
+            <h5>Голова (Head)</h5>
+            <p class="mb-0"><strong>@Model.HeadValue</strong></p>
+        </div>
+    </div>
+}
+
+@if (Model?.TailAs != null)
+{
+    <div class="card mb-3">
+        <div class="card-body">
+            <h5>Хвіст (Tail)</h5>
+            <pre class="mb-0">@Model.TailAs</pre>
+        </div>
+    </div>
+}
+
+@if (Model?.ZeroCount != null)
+{
+    <div class="card mb-3">
+        <div class="card-body">
+            <h5>Кількість нулів</h5>
+            <p class="mb-0"><strong>@Model.ZeroCount</strong></p>
+        </div>
+    </div>
+}
+
+@if (Model?.ResultAs != null)
+{
+    <div class="card">
+        <div class="card-body">
+            <h5>Кінцевий список (після трансформації та додавання кількості нулів)</h5>
+            <pre class="mb-0">@Model.ResultAs</pre>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

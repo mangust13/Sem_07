@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Verify Digital Signature";
+}
+
+<h2>Verify Digital Signature</h2>
+
+<form asp-action="Verify" method="post" enctype="multipart/form-data">
+    <label>File to Verify:</label><br />
+    <input type="file" name="fileToVerify" /><br /><br />
+    <label>Signature File (.sig):</label><br />
+    <input type="file" name="signatureFile" /><br /><br />
+    <label>Public Key File (.key):</label><br />
+    <input type="file" name="publicKeyFile" /><br /><br />
+    <button type="submit">Verify</button>
+</form>
+
+@if (ViewBag.Result != null)
+{
+    <hr />
+    <h3>@ViewBag.Result</h3>
+}
+
