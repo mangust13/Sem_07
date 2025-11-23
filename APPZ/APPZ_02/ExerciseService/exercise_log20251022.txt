@@ -1,0 +1,19 @@
+[2025-10-22 18:59:12] [FTL] ❌ Помилка при запуску ExerciseService
+[2025-10-22 19:03:43] [INF] [ExerciseService] Надіслано аудіо для вправи 2
+[2025-10-22 19:03:52] [INF] 📥 Отримано результат для вправи #2: 91 % | Вимова правильна, артикуляція гарна!
+[2025-10-22 19:03:53] [INF] [ExerciseService] Результат збережено у ProgressService ✅
+[2025-10-22 19:13:41] [INF] [ExerciseService] Надіслано аудіо для вправи 5
+[2025-10-22 19:13:47] [INF] 📥 Отримано результат для вправи #5: 91 % | Вимова правильна, артикуляція гарна!
+[2025-10-22 19:13:48] [INF] [ExerciseService] Результат збережено у ProgressService ✅
+[2025-10-22 19:18:45] [INF] [ExerciseService] Sent simulated result for exercise 5: 48.1% | Fair pronunciation, but more articulation practice is required.
+[2025-10-22 19:18:45] [INF] Received result for exercise #5: 48.1% | Fair pronunciation, but more articulation practice is required.
+[2025-10-22 19:18:46] [INF] [ExerciseService] Result successfully saved in ProgressService.
+[2025-10-22 19:19:23] [INF] [ExerciseService] Sent simulated result for exercise 2: 58.5% | Good pronunciation. Keep practicing!
+[2025-10-22 19:19:23] [INF] Received result for exercise #2: 58.5% | Good pronunciation. Keep practicing!
+[2025-10-22 19:19:23] [INF] [ExerciseService] Result successfully saved in ProgressService.
+[2025-10-22 19:21:33] [INF] [ExerciseService] Sent audio request for exercise #5
+[2025-10-22 19:21:35] [INF] Received result for exercise #5: 98.3% | Excellent pronunciation! Clear and natural speech!
+[2025-10-22 19:21:36] [INF] [ExerciseService] Result saved in ProgressService.
+[2025-10-22 19:34:35] [INF] [ExerciseService] Sent audio request for exercise #5
+[2025-10-22 19:34:37] [INF] Received result for exercise #5: 34.5% | Fair, but articulation needs more work.
+[2025-10-22 19:34:38] [INF] [ExerciseService] Result saved in ProgressService.

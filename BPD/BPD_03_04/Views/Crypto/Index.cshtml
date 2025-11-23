@@ -1,0 +1,88 @@
+﻿@model Cipher.Models.EncryptViewModel
+
+<h2>Dual Encryption Tool (RC5 + RSA)</h2>
+
+<form asp-action="Process" method="post" enctype="multipart/form-data">
+    <label>Password:</label><br />
+    <input type="password" name="Password" required /><br /><br />
+
+    <label>Mode:</label><br />
+    <select name="Mode" id="modeSelect" onchange="toggleFiles()">
+        <option value="encrypt">Encrypt</option>
+        <option value="decrypt">Decrypt</option>
+    </select><br /><br />
+
+    <div id="encryptBlock">
+        <label>File to Encrypt:</label><br />
+        <input type="file" name="File" /><br /><br />
+    </div>
+
+    <div id="decryptBlock" style="display:none;">
+        <label>Encrypted RC5 File:</label><br />
+        <input type="file" name="Rc5File" /><br /><br />
+
+        <label>Encrypted RSA File:</label><br />
+        <input type="file" name="RsaFile" /><br /><br />
+    </div>
+
+    <button type="submit">Run</button>
+</form>
+
+@if (ViewBag.Error != null)
+{
+    <p style="color:red; font-weight:bold;">@Html.Raw(ViewBag.Error)</p>
+}
+@if (ViewBag.Message != null)
+{
+    <p style="color:green; font-weight:bold;">@Html.Raw(ViewBag.Message)</p>
+}
+@if (ViewBag.PublicModulus != null)
+{
+    <h3>🔑 Public Key Components</h3>
+    <h4>Modulus (N):</h4>
+    <textarea rows="2" cols="90" readonly>@ViewBag.PublicModulus</textarea>
+    <br />
+    <br />
+    <h4>Exponent (E):</h4>
+    <textarea rows="2" cols="90" readonly>@ViewBag.PublicExponent</textarea>
+    <br />
+    <br />
+
+    <hr />
+    <h3>🔒 Private Key Components</h3>
+    <h4>Modulus (N):</h4>
+    <textarea rows="2" cols="90" readonly>@ViewBag.PrivateModulus</textarea>
+    <br />
+    <br />
+    <h4>D:</h4>
+    <textarea rows="2" cols="90" readonly>@ViewBag.PrivateExponent</textarea>
+    <br />
+    <br />
+    <h4>P:</h4>
+    <textarea rows="2" cols="90" readonly>@ViewBag.P</textarea>
+    <br />
+    <br />
+    <h4>Q:</h4>
+    <textarea rows="2" cols="90" readonly>@ViewBag.Q</textarea>
+    <br />
+    <br />
+    <h4>DP:</h4>
+    <textarea rows="2" cols="90" readonly>@ViewBag.DP</textarea>
+    <br />
+    <br />
+    <h4>DQ:</h4>
+    <textarea rows="2" cols="90" readonly>@ViewBag.DQ</textarea>
+    <br />
+    <br />
+    <h4>InverseQ:</h4>
+    <textarea rows="2" cols="90" readonly>@ViewBag.InverseQ</textarea>
+}
+
+<script>
+    function toggleFiles() {
+        const mode = document.getElementById('modeSelect').value;
+        document.getElementById('encryptBlock').style.display = mode === 'encrypt' ? 'block' : 'none';
+        document.getElementById('decryptBlock').style.display = mode === 'decrypt' ? 'block' : 'none';
+    }
+    window.onload = toggleFiles;
+</script>
