@@ -1,0 +1,12 @@
+nephew_unique(X).
+
+father_in_law(X).
+father_in_law_except(X, alice).
+
+grandfather_of(G, mark).
+grandfather_of(G, max).
+
+has_married_cousin_brother(kevin).
+married_cousin_brother(X, kevin).
+
+
