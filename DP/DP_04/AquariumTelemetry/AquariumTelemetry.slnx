@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="AquariumTelemetryConsumer/AquariumTelemetryConsumer.csproj" />
+  <Project Path="AquariumTelemetrySource/AquariumTelemetrySource.csproj" />
+</Solution>

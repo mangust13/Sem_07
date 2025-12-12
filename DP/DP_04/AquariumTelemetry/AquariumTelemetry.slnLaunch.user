@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "AquariumTelemetryConsumer\\AquariumTelemetryConsumer.csproj",
+        "Action": "StartWithoutDebugging"
+      },
+      {
+        "Path": "AquariumTelemetrySource\\AquariumTelemetrySource.csproj",
+        "Action": "StartWithoutDebugging"
+      }
+    ]
+  }
+]

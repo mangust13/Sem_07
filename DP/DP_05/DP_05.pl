@@ -116,3 +116,4 @@ print_all_nephews :-
     write(X), nl,
     fail.
 print_all_nephews.
+

@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\Univer\\Sem_07\\DP\\DP_04\\AquariumTelemetrySource\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{783B2720-CC20-0209-F941-1A4237064BBC}|AquariumTelemetrySource.csproj|d:\\univer\\sem_07\\dp\\dp_04\\aquariumtelemetrysource\\aquariumtelemetrysource.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{783B2720-CC20-0209-F941-1A4237064BBC}|AquariumTelemetrySource.csproj|solutionrelative:aquariumtelemetrysource.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{783B2720-CC20-0209-F941-1A4237064BBC}|AquariumTelemetrySource.csproj|d:\\univer\\sem_07\\dp\\dp_04\\aquariumtelemetrysource\\aquariumtelemetrysource.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{783B2720-CC20-0209-F941-1A4237064BBC}|AquariumTelemetrySource.csproj|solutionrelative:aquariumtelemetrysource.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -14,21 +18,70 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:4:0:{fabf9319-47eb-497e-b8f6-d9f73fba5f55}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1280513325:0:{bf84ea66-d821-4dba-b1b1-2777d8574775}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:2:0:{fabf9319-47eb-497e-b8f6-d9f73fba5f55}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:32800:0:{bf84ea66-d821-4dba-b1b1-2777d8574775}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{fabf9319-47eb-497e-b8f6-d9f73fba5f55}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:5:0:{fabf9319-47eb-497e-b8f6-d9f73fba5f55}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:6:0:{fabf9319-47eb-497e-b8f6-d9f73fba5f55}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:7:0:{fabf9319-47eb-497e-b8f6-d9f73fba5f55}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:8:0:{fabf9319-47eb-497e-b8f6-d9f73fba5f55}"
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "AquariumTelemetrySource",
+              "DocumentMoniker": "D:\\Univer\\Sem_07\\DP\\DP_04\\AquariumTelemetrySource\\AquariumTelemetrySource.csproj",
+              "RelativeDocumentMoniker": "AquariumTelemetrySource.csproj",
+              "ToolTip": "D:\\Univer\\Sem_07\\DP\\DP_04\\AquariumTelemetrySource\\AquariumTelemetrySource.csproj",
+              "RelativeToolTip": "AquariumTelemetrySource.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-12-07T16:58:37.745Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "AquariumTelemetrySource.cs",
               "DocumentMoniker": "D:\\Univer\\Sem_07\\DP\\DP_04\\AquariumTelemetrySource\\AquariumTelemetrySource.cs",
               "RelativeDocumentMoniker": "AquariumTelemetrySource.cs",
               "ToolTip": "D:\\Univer\\Sem_07\\DP\\DP_04\\AquariumTelemetrySource\\AquariumTelemetrySource.cs",
               "RelativeToolTip": "AquariumTelemetrySource.cs",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAQwDMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-19T17:45:56.176Z",
               "EditorCaption": ""

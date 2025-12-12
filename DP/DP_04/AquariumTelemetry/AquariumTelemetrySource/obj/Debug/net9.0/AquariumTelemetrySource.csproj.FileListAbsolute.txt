@@ -1,0 +1,15 @@
+D:\Univer\Sem_07\DP\DP_04\AquariumTelemetry\AquariumTelemetrySource\bin\Debug\net9.0\AquariumTelemetrySource.exe
+D:\Univer\Sem_07\DP\DP_04\AquariumTelemetry\AquariumTelemetrySource\bin\Debug\net9.0\AquariumTelemetrySource.deps.json
+D:\Univer\Sem_07\DP\DP_04\AquariumTelemetry\AquariumTelemetrySource\bin\Debug\net9.0\AquariumTelemetrySource.runtimeconfig.json
+D:\Univer\Sem_07\DP\DP_04\AquariumTelemetry\AquariumTelemetrySource\bin\Debug\net9.0\AquariumTelemetrySource.dll
+D:\Univer\Sem_07\DP\DP_04\AquariumTelemetry\AquariumTelemetrySource\bin\Debug\net9.0\AquariumTelemetrySource.pdb
+D:\Univer\Sem_07\DP\DP_04\AquariumTelemetry\AquariumTelemetrySource\obj\Debug\net9.0\AquariumTelemetrySource.GeneratedMSBuildEditorConfig.editorconfig
+D:\Univer\Sem_07\DP\DP_04\AquariumTelemetry\AquariumTelemetrySource\obj\Debug\net9.0\AquariumTelemetrySource.AssemblyInfoInputs.cache
+D:\Univer\Sem_07\DP\DP_04\AquariumTelemetry\AquariumTelemetrySource\obj\Debug\net9.0\AquariumTelemetrySource.AssemblyInfo.cs
+D:\Univer\Sem_07\DP\DP_04\AquariumTelemetry\AquariumTelemetrySource\obj\Debug\net9.0\AquariumTelemetrySource.csproj.CoreCompileInputs.cache
+D:\Univer\Sem_07\DP\DP_04\AquariumTelemetry\AquariumTelemetrySource\obj\Debug\net9.0\AquariumTelemetrySource.sourcelink.json
+D:\Univer\Sem_07\DP\DP_04\AquariumTelemetry\AquariumTelemetrySource\obj\Debug\net9.0\AquariumTelemetrySource.dll
+D:\Univer\Sem_07\DP\DP_04\AquariumTelemetry\AquariumTelemetrySource\obj\Debug\net9.0\refint\AquariumTelemetrySource.dll
+D:\Univer\Sem_07\DP\DP_04\AquariumTelemetry\AquariumTelemetrySource\obj\Debug\net9.0\AquariumTelemetrySource.pdb
+D:\Univer\Sem_07\DP\DP_04\AquariumTelemetry\AquariumTelemetrySource\obj\Debug\net9.0\AquariumTelemetrySource.genruntimeconfig.cache
+D:\Univer\Sem_07\DP\DP_04\AquariumTelemetry\AquariumTelemetrySource\obj\Debug\net9.0\ref\AquariumTelemetrySource.dll
