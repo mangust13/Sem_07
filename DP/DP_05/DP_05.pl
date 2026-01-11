@@ -93,6 +93,8 @@ father_in_law_except(X, Woman) :-
     father_in_law_of(X, OtherWoman),
     OtherWoman \= Woman.
 
+?-grandfather_of(_, married(F, P)).
+
 grandfather_of(G, P) :-
     man(G),
     parent(G, X),
